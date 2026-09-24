@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "header": "August 2026 Bank Statement",
+    "type": "PDF",
+    "status": "Pending",
+    "target": "High",
+    "limit": "Aug 26",
+    "reviewer": "Ahmad Khan"
+  },
+  {
+    "id": 2,
+    "header": "July Petty Cash Receipts",
+    "type": "Excel",
+    "status": "Verified",
+    "target": "Medium",
+    "limit": "Jul 26",
+    "reviewer": "Ahmad Khan"
+  },
+  {
+    "id": 3,
+    "header": "Q2 VAT Return Acknowledgment",
+    "type": "EmaraTax",
+    "status": "Filed",
+    "target": "Closed",
+    "limit": "Q2 26",
+    "reviewer": "Sarah Ali"
+  },
+  {
+    "id": 4,
+    "header": "Corporate Tax TRN Certificate",
+    "type": "FTA",
+    "status": "Verified",
+    "target": "Closed",
+    "limit": "2026",
+    "reviewer": "Sarah Ali"
+  },
+  {
+    "id": 5,
+    "header": "September Sales Invoices",
+    "type": "ZIP",
+    "status": "Pending",
+    "target": "High",
+    "limit": "Sep 26",
+    "reviewer": "Ahmad Khan"
+  }
+]

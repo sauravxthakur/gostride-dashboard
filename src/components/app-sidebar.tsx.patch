@@ -1,0 +1,44 @@
+--- src/components/app-sidebar.tsx
++++ src/components/app-sidebar.tsx
+@@ -2,6 +2,7 @@
+ 
+ import * as React from "react"
+ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
++import { useRouter, useSearchParams } from "next/navigation"
+ import {
+   Workflow,
+   BarChart2,
+@@ -113,7 +114,13 @@
+ }
+ 
+ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+-  const [activeItem, setActiveItem] = React.useState("Dashboard")
++  const router = useRouter()
++  const searchParams = useSearchParams()
++  const activeItem = searchParams.get("tab") || "Dashboard"
++
++  const handleNav = (e: React.MouseEvent, title: string) => {
++    e.preventDefault()
++    router.push(`/?tab=${encodeURIComponent(title)}`)
++  }
+ 
+   return (
+     <Sidebar {...props}>
+@@ -140,7 +147,7 @@
+               {data.navMain.map((item) => (
+                 <SidebarMenuItem key={item.title}>
+                   <SidebarMenuButton 
+-                    render={<a href={item.url} onClick={(e) => { e.preventDefault(); setActiveItem(item.title); }} />} 
++                    render={<a href={item.url} onClick={(e) => handleNav(e, item.title)} />} 
+                     isActive={activeItem === item.title} 
+                     tooltip={item.title}
+                   >
+@@ -160,7 +167,7 @@
+               {data.documents.map((item) => (
+                 <SidebarMenuItem key={item.title}>
+                   <SidebarMenuButton 
+-                    render={<a href={item.url} onClick={(e) => { e.preventDefault(); setActiveItem(item.title); }} />} 
++                    render={<a href={item.url} onClick={(e) => handleNav(e, item.title)} />} 
+                     isActive={activeItem === item.title}
+                     tooltip={item.title}
+                   >
