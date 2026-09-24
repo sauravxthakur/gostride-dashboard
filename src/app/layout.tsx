@@ -37,7 +37,9 @@ export default function RootLayout({
               } as React.CSSProperties
             }
           >
-            <AppSidebar variant="inset" />
+            <React.Suspense fallback={null}>
+              <AppSidebar variant="inset" />
+            </React.Suspense>
             <SidebarInset>
               {children}
             </SidebarInset>
